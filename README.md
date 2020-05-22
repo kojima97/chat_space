@@ -45,7 +45,7 @@ Things you may want to cover:
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -55,9 +55,10 @@ Things you may want to cover:
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|text|text||
+|image|string||
+|user|references|null: false, foreign_key: true|
+|groups|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
