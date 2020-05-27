@@ -1,0 +1,26 @@
+.chat-main
+  .chat-main__group-info
+    .left-box 
+      .current-group グループ１
+      .group-memmber memmber
+    = link_to "#", class: "edit-btn" do
+      .btn 
+        Edit
+  .chat-main__message-list
+    .message
+      .upper こじま
+      .date 2020/05/26
+      .text おはよう！
+  .chat-main__message-form
+    .new-message
+      .input-box
+        .text-box
+          %input{type: "text" ,placeholder: "type a message", class: "text-box"}
+        .image-btn
+          %label{class: "btn"}
+            = icon('fas', 'image')
+            .file
+              %input{type: "file"}
+      .s-btn 
+        = link_to "＃", class: "send-btn" do
+          Send
