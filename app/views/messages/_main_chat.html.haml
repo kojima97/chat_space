@@ -2,26 +2,43 @@
   .chat-main__group-info
     .left-box 
       .current-group 
-        グループ１
+        = @group.name
       .group-memmber 
-        memmber:
-    = link_to "#",class: "edit-btn" do
-      Edit
+        - @group.users.each do |user|
+          = user.name
+    .edit-btn
+      = link_to edit_group_path(@group) do
+        Edit
   .chat-main__message-list
     .message
-      .upper こじま
-      .date 2020/05/26
-      .text おはよう！
+      .messages
+        = render @messages
+      -# .upper こじま
+      -# .date 2020/05/26
+      -# .text おはよう！
+  
+
   .chat-main__message-form
-    .new-message
+    = form_for [@group,@message] do |f|
       .input-box
-        .text-box
-          %input{type: "text" ,placeholder: "type a message", class: "text-box"}
-        .image-btn
-          %label{class: "btn"}
-            = icon('fas', 'image')
-            .file
-              %input{type: "file"}
-      .s-btn 
-        = link_to "＃", class: "send-btn" do
-          Send
+        = f.text_field :content, class: 'text-box', placeholder: 'type a message'
+        = f.label :image, class: 'image-btn' do
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'file'
+      = f.submit 'Send', class: 's-btn'
+    -#   .chat-main__message-form
+    -# .new-message
+    -#   .input-box
+    -#     .text-box
+    -#       %input{type: "text" ,placeholder: "type a message", class: "text-box"}
+    -#     .image-btn
+    -#       %label{class: "btn"}
+    -#         = icon('fas', 'image')
+    -#         .file
+    -#           %input{type: "file"}
+    -#   .s-btn 
+    -#     = link_to "＃", class: "send-btn" do
+    -#       Send
+
+    -# = link_to "edit_group_path",class: "edit-btn" do
+      -# Edit

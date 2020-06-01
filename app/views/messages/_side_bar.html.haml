@@ -15,11 +15,12 @@
   .side-bar__group-list
     .list
       - current_user.groups.each do |group|
-        = link_to "#" do
+        = link_to group_messages_path(group) do
           .group
             .group-name 
               = group.name
-            .message まだメッセージがありません
+            .message 
+              = group.show_last_message
           
         -#  = link_to "groups/new", class: "icon-edit" do, 
         -# class: "group"
