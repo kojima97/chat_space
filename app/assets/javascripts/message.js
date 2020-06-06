@@ -70,7 +70,6 @@ $(function(){
         if (messages.length !== 0) {
           var insertHTML = '';
           $.each(messages, function(i, message) {
-            console.log(i)
             insertHTML += buildHTML(message)
           });
           $('.chat-main__message-list').append(insertHTML);;
