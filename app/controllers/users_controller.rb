@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      # binding.pry
     end
   end
 
