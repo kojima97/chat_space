@@ -5,6 +5,7 @@
         = @group.name
       .group-memmber 
         - @group.users.each do |user|
+          Member:
           = user.name
     .edit-btn
       = link_to edit_group_path(@group) do
